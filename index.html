@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Your Pricing Page</title>
+</head>
+
+
+<body>
+
+    <div class="container">
+        
+        <label for="unit">Choose Unit:</label>
+        <select id="unit" onchange="updateDetails()">
+            <option value="month">Per Month</option>
+            <option value="year">Per Year</option>
+        </select>
+    </div>
+
+    <div class="pricing">
+        <h2>Choose your plan</h2>
+        <div class="planRow">
+            <div class="plan" id="plan1">
+                <h2>Basic Plan</h2>
+                <p class="price1 month"><span>$</span>9.<span>99</span></p>
+                <p class="price1 year"><span>$</span>99.<span>99</span></p>
+                <ul>
+                    <li id="storageOption1">10GB Storage</li>
+                    <li id="emailsOption1">10 Emails</li>
+                    <li id="domainsOption1">10 Domains</li>
+                    <li id="bandwidthOption1">1GB Bandwidth</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+            <div class="plan" id="plan2">
+                <h2>Advance Plan</h2>
+                <p class="price2 month"><span>$</span>9.<span>105</span></p>
+                <p class="price2 year"><span>$</span>105.<span>150</span></p>
+                <ul>
+                    <li id="storageOption2">20GB Storage</li>
+                    <li id="emailsOption2">10 Emails</li>
+                    <li id="domainsOption2">25 Domains</li>
+                    <li id="bandwidthOption2">3GB Bandwidth</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+            <div class="plan" id="plan3">
+                <h2>Premium Plan</h2>
+                <p class="price3 month"><span>$</span>10.<span>100</span></p>
+                <p class="price3 year"><span>$</span>11<span>200</span></p>
+                <ul>
+                    <li id="storageOption3">50GB Storage</li>
+                    <li id="emailsOption3">10 Emails</li>
+                    <li id="domainsOption3">40 Domains</li>
+                    <li id="bandwidthOption3">6GB Bandwidth</li>
+                </ul>
+                <button>Select Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDetails() {
+            var selectedUnit = document.getElementById("unit").value;
+
+            // Update details based on the selected unit
+            if (selectedUnit === "month") {
+                document.getElementById("storageOption1").innerHTML = "10GB Storage";
+                document.getElementById("emailsOption1").innerHTML = "10 Emails";
+                document.getElementById("domainsOption1").innerHTML = "10 Domains";
+                document.getElementById("bandwidthOption1").innerHTML = "1GB Bandwidth";
+
+                document.getElementById("storageOption2").innerHTML = "20GB Storage";
+                document.getElementById("emailsOption2").innerHTML = "10 Emails";
+                document.getElementById("domainsOption2").innerHTML = "25 Domains";
+                document.getElementById("bandwidthOption2").innerHTML = "3GB Bandwidth";
+
+                document.getElementById("storageOption3").innerHTML = "50GB Storage";
+                document.getElementById("emailsOption3").innerHTML = "10 Emails";
+                document.getElementById("domainsOption3").innerHTML = "40 Domains";
+                document.getElementById("bandwidthOption3").innerHTML = "6GB Bandwidth";
+            } else if (selectedUnit === "year") {
+                document.getElementById("storageOption1").innerHTML = "120GB Storage";
+                document.getElementById("emailsOption1").innerHTML = "120 Emails";
+                document.getElementById("domainsOption1").innerHTML = "120 Domains";
+                document.getElementById("bandwidthOption1").innerHTML = "12GB Bandwidth";
+
+                document.getElementById("storageOption2").innerHTML = "240GB Storage";
+                document.getElementById("emailsOption2").innerHTML = "120 Emails";
+                document.getElementById("domainsOption2").innerHTML = "300 Domains";
+                document.getElementById("bandwidthOption2").innerHTML = "36GB Bandwidth";
+
+                document.getElementById("storageOption3").innerHTML = "600GB Storage";
+                document.getElementById("emailsOption3").innerHTML = "120 Emails";
+                document.getElementById("domainsOption3").innerHTML = "480 Domains";
+                document.getElementById("bandwidthOption3").innerHTML = "72GB Bandwidth";
+            }
+        }
+        function selectPlan(planName) {
+            var selectedUnit = document.getElementById("unit").value;
+
+            // Update prices based on the selected unit when selecting a plan
+            if (selectedUnit === "month") {
+                updateMonthlyPrice(planName);
+            } else if (selectedUnit === "year") {
+                updateYearlyPrice(planName);
+            }
+        }
+
+        function updateMonthlyPrice(planName) {
+            switch (planName) {
+                case "Basic Plan":
+                    document.getElementById("price1 month").innerHTML = "<span>$</span>9.<span>99</span>";
+                    break;
+                case "Advance Plan":
+                    document.getElementById("price2 month").innerHTML = "<span>$</span>9.<span>105</span>";
+                    break;
+                case "Premium Plan":
+                    document.getElementById("price3 month").innerHTML = "<span>$</span>10.<span>100</span>";
+                    break;
+            }
+        }
+
+        function updateYearlyPrice(planName) {
+            switch (planName) {
+                case "Basic Plan":
+                    document.getElementById("price1 Year").innerHTML = "<span>$</span>99.<span>99</span>";
+                    break;
+                case "Advance Plan":
+                    document.getElementById("price2 Year").innerHTML = "<span>$</span>105.<span>150</span>";
+                    break;
+                case "Premium Plan":
+                    document.getElementById("price3 Year").innerHTML = "<span>$</span>11<span>200</span>";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+                
